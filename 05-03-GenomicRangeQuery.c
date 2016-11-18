@@ -1,14 +1,5 @@
 // you can write to stdout for debugging purposes, e.g.
 // printf("this is a debug message\n");
-
-int getFactor(char c) {
-    if(c == 'A') return 1;
-    if(c == 'C') return 2;
-    if(c == 'G') return 3;
-    if(c == 'T') return 4;
-    return -1;
-}
-
 struct Results solution(char *S, int P[], int Q[], int M) {
     struct Results result;
     int cA[100000] = {0, };
