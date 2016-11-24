@@ -3,9 +3,9 @@
 
 int getBlocks(int H[], int left, int right) {
     int minH = 1000000001;
-    printf("getBlocks %d~%d\n", left, right);
+    //printf("getBlocks %d~%d\n", left, right);
     if(left == right) {
-        printf("\t1 blocks\n");
+        //printf("\t%d~%d 1 blocks\n", left, right);
         return 1;
     }
     for(int i=left; i<=right; i++) {
@@ -13,7 +13,7 @@ int getBlocks(int H[], int left, int right) {
             minH = H[i];
         }
     }
-    printf("\tMinimum Height: %d\n", minH);
+    //printf("\tMinimum Height: %d\n", minH);
     int count = 0;
     if(minH > 0) {
         count = 1;
@@ -28,13 +28,13 @@ int getBlocks(int H[], int left, int right) {
             count += getBlocks(H, from, i-1);
             from = -1;
         }
-        else if(i == right && from >= 0) {
-            count += getBlocks(H, from, i);
-            from = -1;
-        }
         i++;
+    }    
+    if(from >= 0) {
+        count += getBlocks(H, from, right);
+        from = -1;
     }
-    printf("\t%d blocks\n", count);
+    //printf("\t%d~%d %d blocks\n", left, right, count);
     return count;
 }
 
